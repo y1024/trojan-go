@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>国内直连和广告屏蔽 - Trojan-Go Docs</title>
 <meta name="description" content="An unidentifiable mechanism that helps you bypass GFW.">
-<meta name="generator" content="Hugo 0.69.2" />
+<meta name="generator" content="Hugo 0.83.1" />
 <link href="https://p4gefau1t.github.io/trojan-goindex.xml" rel="alternate" type="application/rss+xml">
 <link rel="canonical" href="https://p4gefau1t.github.io/trojan-go/advance/router/">
 <link rel="stylesheet" href="https://p4gefau1t.github.io/trojan-go/css/theme.min.css">
@@ -17,24 +17,21 @@
 :root {}
 </style>
 <meta property="og:title" content="国内直连和广告屏蔽" />
-<meta property="og:description" content="注意，Trojan-GFW版本不支持这个特性 Trojan-Go内建的路由模块可以帮助你实现国内直连，即客户端对于国内网站不经过代理，直接连接" />
+<meta property="og:description" content="注意，Trojan不支持这个特性 Trojan-Go内建的路由模块可以帮助你实现国内直连，即客户端对于国内网站不经过代理，直接连接。 路由模块在" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://p4gefau1t.github.io/trojan-go/advance/router/" />
-<meta property="og:image" content="https://p4gefau1t.github.io/trojan-go/images/og-image.png"/>
+<meta property="og:url" content="https://p4gefau1t.github.io/trojan-go/advance/router/" /><meta property="og:image" content="https://p4gefau1t.github.io/trojan-go/images/og-image.png"/><meta property="article:section" content="advance" />
+
 <meta property="og:site_name" content="Trojan-Go Docs" />
+
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://p4gefau1t.github.io/trojan-go/images/og-image.png"/>
 
 <meta name="twitter:title" content="国内直连和广告屏蔽"/>
-<meta name="twitter:description" content="注意，Trojan-GFW版本不支持这个特性 Trojan-Go内建的路由模块可以帮助你实现国内直连，即客户端对于国内网站不经过代理，直接连接"/>
+<meta name="twitter:description" content="注意，Trojan不支持这个特性 Trojan-Go内建的路由模块可以帮助你实现国内直连，即客户端对于国内网站不经过代理，直接连接。 路由模块在"/>
 <meta itemprop="name" content="国内直连和广告屏蔽">
-<meta itemprop="description" content="注意，Trojan-GFW版本不支持这个特性 Trojan-Go内建的路由模块可以帮助你实现国内直连，即客户端对于国内网站不经过代理，直接连接">
+<meta itemprop="description" content="注意，Trojan不支持这个特性 Trojan-Go内建的路由模块可以帮助你实现国内直连，即客户端对于国内网站不经过代理，直接连接。 路由模块在">
 
-<meta itemprop="wordCount" content="669">
-<meta itemprop="image" content="https://p4gefau1t.github.io/trojan-go/images/og-image.png"/>
-
-
-
+<meta itemprop="wordCount" content="854"><meta itemprop="image" content="https://p4gefau1t.github.io/trojan-go/images/og-image.png"/>
 <meta itemprop="keywords" content="" /></head>
 <body><div class="container"><header>
 <h1>Trojan-Go Docs</h1>
@@ -51,7 +48,7 @@
 </div>
 <div class="content-container">
 <main><h1>国内直连和广告屏蔽</h1>
-<h3 id="注意trojan-gfw版本不支持这个特性">注意，Trojan-GFW版本不支持这个特性</h3>
+<h3 id="注意trojan不支持这个特性">注意，Trojan不支持这个特性</h3>
 <p>Trojan-Go内建的路由模块可以帮助你实现国内直连，即客户端对于国内网站不经过代理，直接连接。</p>
 <p>路由模块在客户端可以配置三种策略(<code>bypass</code>, <code>proxy</code>, <code>block</code>)，在服务端只可使用<code>block</code>策略。</p>
 <p>下面是一个例子</p>
@@ -87,7 +84,9 @@
     }
 }
 </code></pre></div><p>这个配置文件激活了router模块，使用的是白名单的模式，当匹配到中国大陆或者局域网的IP/域名时，直接连接。如果是广告运营商的域名，则直接断开连接。</p>
-<p>所需要的数据库geoip.dat和geosite.dat已经包含在release的压缩包中，直接使用即可。它们来自v2ray的<a href="https://github.com/v2ray/domain-list-community">domain-list-community</a>和<a href="https://github.com/v2ray/geoip">geoip</a>。你可以使用如<code>geosite:cn</code>，<code>geosite:bilibili</code>的形式来指定某一类域名，使用如<code>geoip:cn</code>，<code>geoip:private</code>的形式来指定某一类IP。所有可用的tag可以在<a href="https://github.com/v2ray/domain-list-community">domain-list-community</a>仓库中找到。</p>
+<p>所需要的数据库<code>geoip.dat</code>和<code>geosite.dat</code>已经包含在release的压缩包中，直接使用即可。它们来自V2Ray的<a href="https://github.com/v2fly/domain-list-community">domain-list-community</a>和<a href="https://github.com/v2fly/geoip">geoip</a>。</p>
+<p>你可以使用如<code>geosite:cn</code>、<code>geosite:geolocation-!cn</code>、<code>geosite:category-ads-all</code>、<code>geosite:bilibili</code>的形式来指定某一类域名，所有可用的tag可以在<a href="https://github.com/v2fly/domain-list-community">domain-list-community</a>仓库的<a href="https://github.com/v2fly/domain-list-community/tree/master/data"><code>data</code></a>目录中找到。<code>geosite.dat</code> 更详细使用说明，参考<a href="https://www.v2fly.org/config/routing.html#%E9%A2%84%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D%E5%88%97%E8%A1%A8">V2Ray/Routing路由#预定义域名列表</a>。</p>
+<p>你可以使用如<code>geoip:cn</code>、<code>geoip:hk</code>、<code>geoip:us</code>、<code>geoip:private</code>的形式来指定某一类IP。<code>geoip:private</code>为特殊项，囊括了内网IP和保留IP，其余类别囊括了各个国家/地区的IP地址段。各国家/地区的代号参考<a href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E5%AE%B6%E5%9C%B0%E5%8D%80%E4%BB%A3%E7%A2%BC">维基百科</a>。</p>
 <p>你也可以配置自己的路由规则。例如，想要屏蔽所有example.com域名以及其子域名，以及192.168.1.0/24，添加下面的规则。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;block&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
     <span style="color:#e6db74">&#34;domain:example.com&#34;</span>,
@@ -102,7 +101,7 @@
 <p>&ldquo;full:&quot;，完全域名匹配</p>
 </li>
 <li>
-<p>&ldquo;regex:&quot;，正则表达式匹配</p>
+<p>&ldquo;regexp:&quot;，正则表达式匹配</p>
 </li>
 <li>
 <p>&ldquo;cidr:&quot;，CIDR匹配</p>
@@ -143,6 +142,7 @@
 <li class=""><a href="https://p4gefau1t.github.io/trojan-go/advance/aead/">使用Shadowsocks AEAD进行二次加密</a></li>
 <li class=""><a href="https://p4gefau1t.github.io/trojan-go/advance/customize-protocol-stack/">自定义协议栈</a></li>
 <li class=""><a href="https://p4gefau1t.github.io/trojan-go/advance/api/">使用API动态管理用户</a></li>
+<li class=""><a href="https://p4gefau1t.github.io/trojan-go/advance/nat/">透明代理</a></li>
 </ul>
   
 </li>
@@ -158,6 +158,7 @@
 <li class=""><a href="https://p4gefau1t.github.io/trojan-go/developer/simplesocks/">SimpleSocks协议</a></li>
 <li class=""><a href="https://p4gefau1t.github.io/trojan-go/developer/api/">API开发</a></li>
 <li class=""><a href="https://p4gefau1t.github.io/trojan-go/developer/plugin/">可插拔传输层插件开发</a></li>
+<li class=""><a href="https://p4gefau1t.github.io/trojan-go/developer/url/">URL方案（草案）</a></li>
 </ul>
   
 </li>
